@@ -21,7 +21,7 @@ class HomeController extends Controller
     //Insertion f la table demandes dial les Pre Inscription
     public function store(Request $req){
         $req->validate([
-            "name"=>"required",
+            "fullName"=>"required",
             "email"=>"required",
             "age"=>"required",
             "filiere_id"=>"required",
@@ -37,7 +37,8 @@ class HomeController extends Controller
            "age" =>$req->input("age"),
            //"message" =>$req->input()
         ]);
-        return redirect("/") ;
+         return view('pages.success');
+
     }
 
     // kay Afficher la page Login

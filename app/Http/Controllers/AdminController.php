@@ -126,10 +126,10 @@ class AdminController extends Controller
       foreach($filterData as $f){
         Notification::send($f,new CongratsNotification($f->filiere_id));
       }
-       return "sent";
+       //return "sent";
       $pdf = Pdf::loadView('pdfs.liste', $data);
-       $pdf->download('listeAdmis.pdf');
-    return view("pdfs.liste",compact("filterData","id"));
+       return $pdf->download('listeAdmis.pdf');
+    //return view("pdfs.liste",compact("filterData","id"));
     }
     public function states(){
         $stagiairesByFiliere = Stagiaire::select('filieres.name as filiere', DB::raw('count(*) as total'))

@@ -38,6 +38,8 @@ Route::post("/etudiant/store" ,[HomeController::class , "storeEtudiant"]);
 
 //Espace Administrateur
 
+
+
 Route::middleware("isAdmin")->group(function(){
 
     Route::get("/admins" , [AdminController::class , "index"]);
